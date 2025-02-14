@@ -92,10 +92,14 @@ def user_login(request):
     else:
         return render(request, 'rango/login.html', {})
     
-    
+@login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+@login_required
+def restricted(request):
+    return render(request, 'rango/restricted.html', {})
 
 def show_category(request, category_name_slug):
     context_dict = {}
