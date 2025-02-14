@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponse
 
@@ -90,6 +91,11 @@ def user_login(request):
             return HttpResponse("Invalid login details supplied.")
     else:
         return render(request, 'rango/login.html', {})
+    
+    
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
 def show_category(request, category_name_slug):
     context_dict = {}
