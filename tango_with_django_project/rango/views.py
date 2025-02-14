@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from rango.forms import CategoryForm
 from rango.forms import PageForm
